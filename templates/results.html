@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Audit Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="{{ url_for('static', filename='darkmode.js') }}" defer></script>
+</head>
+<body>
+    <body>
+        <!-- Dark Mode Toggle -->
+        <div class="dark-mode-toggle">
+            <button id="dark-mode-toggle" aria-label="Toggle Dark Mode" class="toggle-emoji">🌞</button>
+        </div>
+    
+    <div class="container">
+        <h1>Client Engagement Audit Results</h1>
+        <p>Your total score: <strong>{{ score }}</strong>/65</p>
+
+        <h2>Interpretation:</h2>
+        {% if score >= 55 %}
+            <p><strong>Industry Leader in Engagement:</strong> Exceptional performance! Your engagement strategy is setting you apart. Continue innovating and staying ahead.</p>
+        {% elif score >= 40 %}
+            <p><strong>Strong Foundation with Room for Growth:</strong> Great work! Focus on refining your weaker areas to enhance your overall engagement.</p>
+        {% elif score >= 25 %}
+            <p><strong>Basic Infrastructure Needs Enhancement:</strong> You’re on the right track, but some core areas need attention. Start prioritizing improvements for measurable results.</p>
+        {% else %}
+            <p><strong>Critical Need for Engagement Strategy:</strong> Your strategy requires significant improvement. Consider revamping your approach to client engagement.</p>
+        {% endif %}
+
+        <h2>Next Steps:</h2>
+        <ol>
+            <li>Identify and analyze your three lowest-scoring areas.</li>
+            <li>Set actionable goals to improve these areas within a set timeline.</li>
+            <li>Consider a consultation with Loan Flow Analytics for tailored strategies.</li>
+        </ol>
+
+        <h2>Get Your Results:</h2>
+        <p>Enter your email below to receive a detailed summary of your audit results and actionable recommendations.</p>
+        <form action="/results" method="POST">
+            <label for="email">Your Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Send Results</button>
+        </form>
+
+        <h2>We Value Your Feedback!</h2>
+        <p>How helpful was this assessment?</p>
+        <div class="feedback-buttons">
+            <button class="feedback" data-feedback="not_helpful">🙁 Not Helpful</button>
+            <button class="feedback" data-feedback="helpful">🙂 Helpful</button>
+            <button class="feedback" data-feedback="very_helpful">🤩 Very Helpful</button>
+        </div>
+
+        <div class="contact-info">
+            <p>For further assistance, reach out to us at <a href="mailto:info@loanflowanalytics.com">info@loanflowanalytics.com</a>.</p>
+        </div>
+    </div>
+</body>
+</html>

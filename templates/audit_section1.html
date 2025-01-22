@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Section 1: Client Communication Infrastructure</h2>
+
+{% if error_message %}
+    <p class="error">{{ error_message }}</p>
+{% endif %}
+
+<div class="progress-bar">
+    <div class="progress" style="width: {{ progress }}%;"></div>
+</div>
+
+<form method="POST">
+    <!-- Question 1 -->
+    <label for="q1">Organized database of all past clients with accurate contact information</label>
+    <select name="q1" id="q1" required>
+        <option value="1" {% if saved_answers.get('q1') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q1') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q1') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q1') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q1') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <!-- Question 2 -->
+    <label for="q2">Automated system for tracking client touchpoints and interactions</label>
+    <select name="q2" id="q2" required>
+        <option value="1" {% if saved_answers.get('q2') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q2') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q2') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q2') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q2') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <!-- Question 3 -->
+    <label for="q3">Defined communication calendar for regular client outreach</label>
+    <select name="q3" id="q3" required>
+        <option value="1" {% if saved_answers.get('q3') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q3') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q3') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q3') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q3') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <!-- Question 4 -->
+    <label for="q4">Segmented client lists based on loan type, timeline, and relationship stage</label>
+    <select name="q4" id="q4" required>
+        <option value="1" {% if saved_answers.get('q4') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q4') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q4') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q4') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q4') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <!-- Question 5 -->
+    <label for="q5">Mobile-friendly communication channels established</label>
+    <select name="q5" id="q5" required>
+        <option value="1" {% if saved_answers.get('q5') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q5') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q5') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q5') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q5') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <button type="submit" name="action" value="next">Next ➡️</button>
+</form>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Section 3: Retention Strategy</h2>
+
+{% if error_message %}
+    <p class="error">{{ error_message }}</p>
+{% endif %}
+
+<div class="progress-bar">
+    <div class="progress" style="width: {{ progress }}%;"></div>
+</div>
+
+<form method="POST">
+    <!-- Question 9 -->
+    <label for="q9">Defined referral reward system</label>
+    <select name="q9" id="q9" required>
+        <option value="1" {% if saved_answers.get('q9') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q9') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q9') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q9') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q9') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <!-- Question 10 -->
+    <label for="q10">Client appreciation events calendar</label>
+    <select name="q10" id="q10" required>
+        <option value="1" {% if saved_answers.get('q10') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q10') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q10') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q10') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q10') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <!-- Question 11 -->
+    <label for="q11">Partnership benefits program</label>
+    <select name="q11" id="q11" required>
+        <option value="1" {% if saved_answers.get('q11') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q11') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q11') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q11') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q11') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <!-- Question 12 -->
+    <label for="q12">Client retention rate tracking</label>
+    <select name="q12" id="q12" required>
+        <option value="1" {% if saved_answers.get('q12') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q12') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q12') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q12') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q12') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <!-- Question 13 -->
+    <label for="q13">Engagement metrics definition and tracking</label>
+    <select name="q13" id="q13" required>
+        <option value="1" {% if saved_answers.get('q13') == '1' %}selected{% endif %}>1 - Not implemented</option>
+        <option value="2" {% if saved_answers.get('q13') == '2' %}selected{% endif %}>2 - Basic implementation</option>
+        <option value="3" {% if saved_answers.get('q13') == '3' %}selected{% endif %}>3 - Moderate implementation</option>
+        <option value="4" {% if saved_answers.get('q13') == '4' %}selected{% endif %}>4 - Strong implementation</option>
+        <option value="5" {% if saved_answers.get('q13') == '5' %}selected{% endif %}>5 - Excellence achieved</option>
+    </select>
+    <br><br>
+
+    <button type="submit" name="action" value="previous">⬅️ Previous</button>
+    <button type="submit" name="action" value="next">Submit ➡️</button>
+</form>
+{% endblock %}
