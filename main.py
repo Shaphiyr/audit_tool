@@ -169,5 +169,6 @@ def send_email(to_email, first_name, score, answers):
     except Exception as e:
         print("Failed to send email:", e)
 
-if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5000)
+    if __name__ == "__main__":
+        app.run(debug=True, host="0.0.0.0", port=5001)  # Change to port 5001 or any available port
+
