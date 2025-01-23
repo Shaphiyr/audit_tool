@@ -14,12 +14,10 @@ def start_survey():
     last_name = request.form.get("last_name", "").strip()
     email = request.form.get("email", "").strip()
 
-    # Validate form inputs
     if not first_name or not last_name or not email:
         error_message = "All fields are required. Please fill out the form completely."
         return render_template("landing.html", error_message=error_message)
 
-    # Save validated data in the session
     session['first_name'] = first_name
     session['last_name'] = last_name
     session['email'] = email
@@ -33,7 +31,6 @@ def section1():
         section1_answers = request.form.to_dict()
         required_fields = ["q1", "q2", "q3", "q4", "q5"]
 
-        # Validate all required fields
         for field in required_fields:
             if field not in section1_answers or section1_answers[field].strip() == "":
                 error_message = "Please answer all questions before proceeding."
@@ -44,8 +41,8 @@ def section1():
                     saved_answers=session.get("answers", {})
                 )
 
-        # Save answers for Section 1 in the session
-        session['answers'].update(section1_answers)
+        # Save numeric part of answers
+        session['answers'].update({key: value.split(" ")[0] for key, value in section1_answers.items()})
         print("Session after Section 1:", session)  # Debugging
         return redirect(url_for("section2"))
 
@@ -60,11 +57,9 @@ def section2():
     if request.method == "POST":
         action = request.form.get("action")
 
-        # Navigate to previous section
         if action == "previous":
             return redirect(url_for("section1"))
 
-        # Validate answers for Section 2
         section2_answers = request.form.to_dict()
         required_fields = ["q6", "q7", "q8"]
 
@@ -78,8 +73,7 @@ def section2():
                     saved_answers=session.get("answers", {})
                 )
 
-        # Save answers for Section 2 in the session
-        session['answers'].update(section2_answers)
+        session['answers'].update({key: value.split(" ")[0] for key, value in section2_answers.items()})
         print("Session after Section 2:", session)  # Debugging
         return redirect(url_for("section3"))
 
@@ -94,11 +88,9 @@ def section3():
     if request.method == "POST":
         action = request.form.get("action")
 
-        # Navigate to previous section
         if action == "previous":
             return redirect(url_for("section2"))
 
-        # Validate answers for Section 3
         section3_answers = request.form.to_dict()
         required_fields = ["q9", "q10", "q11", "q12", "q13"]
 
@@ -112,8 +104,7 @@ def section3():
                     saved_answers=session.get("answers", {})
                 )
 
-        # Save answers for Section 3 in the session
-        session['answers'].update(section3_answers)
+        session['answers'].update({key: value.split(" ")[0] for key, value in section3_answers.items()})
         print("Session after Section 3:", session)  # Debugging
         return redirect(url_for("results_page"))
 
@@ -170,4 +161,4 @@ def send_email(to_email, first_name, score, answers):
         print("Failed to send email:", e)
 
 if __name__ == "__main__":
-    app.run(debug=True, host="0.0.0.0", port=5001)  # Ensure this is placed at the root
+    app.run(debug=True, host="0.0.0.0", port=5001)

@@ -8,11 +8,10 @@
     <script src="{{ url_for('static', filename='darkmode.js') }}" defer></script>
 </head>
 <body>
-    <body>
-        <!-- Dark Mode Toggle -->
-        <div class="dark-mode-toggle">
-            <button id="dark-mode-toggle" aria-label="Toggle Dark Mode" class="toggle-emoji">🌞</button>
-        </div>
+    <!-- Dark Mode Toggle -->
+    <div class="dark-mode-toggle">
+        <button id="dark-mode-toggle" aria-label="Toggle Dark Mode" class="toggle-emoji">🌞</button>
+    </div>
     
     <div class="container">
         <h1>Client Engagement Audit Results</h1>
@@ -28,6 +27,13 @@
         {% else %}
             <p><strong>Critical Need for Engagement Strategy:</strong> Your strategy requires significant improvement. Consider revamping your approach to client engagement.</p>
         {% endif %}
+
+        <h2>Your Answers:</h2>
+        <ul>
+            {% for question, answer in answers.items() %}
+                <li><strong>{{ question }}:</strong> {{ answer }}</li>
+            {% endfor %}
+        </ul>
 
         <h2>Next Steps:</h2>
         <ol>
