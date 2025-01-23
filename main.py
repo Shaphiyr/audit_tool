@@ -1,7 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 import smtplib
 
-
 app = Flask(__name__)
 app.secret_key = "super_secret_key"  # For session handling
 
@@ -170,6 +169,5 @@ def send_email(to_email, first_name, score, answers):
     except Exception as e:
         print("Failed to send email:", e)
 
-    if __name__ == "__main__":
-        app.run(debug=True, host="0.0.0.0", port=5000, use_debugger=True)
-
+if __name__ == "__main__":
+    app.run(debug=True, host="0.0.0.0", port=5001)  # Ensure this is placed at the root
